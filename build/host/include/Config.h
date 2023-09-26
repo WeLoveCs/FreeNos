@@ -257,7 +257,7 @@
 #define VERSION_SUFFIX ""
 #define VERSION "1.0.3"
 #define VERSIONCODE 65539
-#define RELEASE "1.0.3-git(db27dbbc)"
+#define RELEASE "1.0.3-git(24ea037)*"
 #define FREENOS 1
 #define COMPILER_VERSION "gcc (Ubuntu 11.4.0-1ubuntu1~22.04) 11.4.0"
 #define BUILDUSER "bento"
@@ -266,8 +266,8 @@
 #define BUILDARCH "x86_64"
 #define BUILDPY "Python 3.10.12"
 #define BUILDER "SCons 4.0.1"
-#define BUILDURL "/home/bento/FreeNOS"
-#define BUILDPATH "/home/bento/FreeNOS"
-#define TESTROOT "/home/bento/FreeNOS/build/host"
+#define BUILDURL "/home/bento/FreeNOS/FreeNos"
+#define BUILDPATH "/home/bento/FreeNOS/FreeNos"
+#define TESTROOT "/home/bento/FreeNOS/FreeNos/build/host"
 #endif
 

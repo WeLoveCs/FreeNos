@@ -249,7 +249,7 @@
 #define QEMU "qemu-system-i386"
 #define QEMUCMD "${QEMU} ${QEMUFLAGS}"
 #define QEMUFLAGS "-smp 4 -m 256 -enable-kvm -M pc,kernel_irqchip=off"
-#define SESSION_MANAGER "local/bento-box:@/tmp/.ICE-unix/1565,unix/bento-box:/tmp/.ICE-unix/1565"
+#define SESSION_MANAGER "local/bento-box:@/tmp/.ICE-unix/1642,unix/bento-box:/tmp/.ICE-unix/1642"
 #define QT_ACCESSIBILITY 1
 #define COLORTERM "truecolor"
 #define XDG_CONFIG_DIRS "/etc/xdg/xdg-ubuntu:/etc/xdg"
@@ -265,8 +265,8 @@
 #define LOGNAME "bento"
 #define XDG_SESSION_DESKTOP "ubuntu"
 #define XDG_SESSION_TYPE "wayland"
-#define SYSTEMD_EXEC_PID 1586
-#define XAUTHORITY "/run/user/1000/.mutter-Xwaylandauth.XC5AB2"
+#define SYSTEMD_EXEC_PID 1670
+#define XAUTHORITY "/run/user/1000/.mutter-Xwaylandauth.5WV0B2"
 #define HOME "/home/bento"
 #define USERNAME "bento"
 #define IM_CONFIG_PHASE 1
@@ -275,7 +275,7 @@
 #define XDG_CURRENT_DESKTOP "ubuntu:GNOME"
 #define VTE_VERSION 6800
 #define WAYLAND_DISPLAY "wayland-0"
-#define GNOME_TERMINAL_SCREEN "/org/gnome/Terminal/screen/72fbd70c_846d_4059_b840_eec7858d10b7"
+#define GNOME_TERMINAL_SCREEN "/org/gnome/Terminal/screen/aaf0ee99_a1c1_4d8d_b790_9ef2a6daa0d9"
 #define GNOME_SETUP_DISPLAY ":1"
 #define LESSCLOSE "/usr/bin/lesspipe %s %s"
 #define XDG_SESSION_CLASS "user"
@@ -284,7 +284,7 @@
 #define HADOOP_HOME "/usr/local/hadoop"
 #define LESSOPEN "| /usr/bin/lesspipe %s"
 #define USER "bento"
-#define GNOME_TERMINAL_SERVICE ":1.203"
+#define GNOME_TERMINAL_SERVICE ":1.426"
 #define DISPLAY ":0"
 #define SHLVL 1
 #define QT_IM_MODULE "ibus"
@@ -314,7 +314,7 @@
 #define KVMFLAGS "-enable-kvm -M pc,kernel_irqchip=off"
 #define VERSION "1.0.3"
 #define VERSIONCODE 65539
-#define RELEASE "1.0.3-git(db27dbbc)"
+#define RELEASE "1.0.3-git(24ea037)*"
 #define FREENOS 1
 #define COMPILER_VERSION "gcc (Ubuntu 11.4.0-1ubuntu1~22.04) 11.4.0"
 #define BUILDUSER "bento"
@@ -323,8 +323,8 @@
 #define BUILDARCH "x86_64"
 #define BUILDPY "Python 3.10.12"
 #define BUILDER "SCons 4.0.1"
-#define BUILDURL "/home/bento/FreeNOS"
-#define BUILDPATH "/home/bento/FreeNOS"
+#define BUILDURL "/home/bento/FreeNOS/FreeNos"
+#define BUILDPATH "/home/bento/FreeNOS/FreeNos"
 #define TESTROOT ""
 #endif
 
