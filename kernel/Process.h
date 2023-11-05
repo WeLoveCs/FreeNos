@@ -260,7 +260,7 @@ class Process
     ProcessID m_parent;
 
 	/** Priority 1 - 5*/
-	int m_priority;
+	uint m_priority;
     /** Current process status. */
     State m_state;
 
