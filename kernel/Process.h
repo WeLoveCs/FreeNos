@@ -105,6 +105,11 @@ class Process
     /**
      * Get Wait ID.
      */
+	ProcessID getPriority() const;
+
+	/**
+     * Get priority number.
+     */
     ProcessID getWait() const;
 
     /**
@@ -241,6 +246,11 @@ class Process
      */
     void setParent(ProcessID id);
 
+	/**
+	 * Set priority number.
+	*/
+	void setPriority(int prio);
+
   protected:
 
     /** Process Identifier */
@@ -249,6 +259,8 @@ class Process
     /** Parent process */
     ProcessID m_parent;
 
+	/** Priority 1 - 5*/
+	int m_priority;
     /** Current process status. */
     State m_state;
 

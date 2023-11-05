@@ -70,6 +70,9 @@ API::Result ProcessCtlHandler(const ProcessID procID,
     case GetParent:
         return (API::Result) procs->current()->getParent();
 
+	case GetPriority:
+		return (API::Result) procs->current()->getPriority();
+
     case Schedule:
         procs->schedule();
         break;
@@ -190,6 +193,7 @@ Log & operator << (Log &log, ProcessOperation op)
         case KillPID:   log.append("KillPID"); break;
         case GetPID:    log.append("GetPID"); break;
         case GetParent: log.append("GetParent"); break;
+		case GetPriority: log.append("GetPriority"); break;
         case WatchIRQ:  log.append("WatchIRQ"); break;
         case EnableIRQ: log.append("EnableIRQ"); break;
         case DisableIRQ:log.append("DisableIRQ"); break;
