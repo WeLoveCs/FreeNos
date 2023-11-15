@@ -99,7 +99,7 @@ class ProcessClient
      * @return void
      */
 
-	ProcessID setPriority() const;
+	ProcessID setPriority(const ProcessID pid, const int priority) const;
 
     /**
      * Get process information by its ID.

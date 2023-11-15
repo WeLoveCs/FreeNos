@@ -249,7 +249,7 @@ class Process
 	/**
 	 * Set priority number.
 	*/
-	void setPriority(int prio);
+	Result setPriority(int prio);
 
   protected:
 
