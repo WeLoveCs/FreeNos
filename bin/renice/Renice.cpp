@@ -20,43 +20,41 @@
 #include <stdio.h>
 #include <unistd.h>
 #include <ProcessClient.h>
-#include "ProcessList.h"
+#include "Renice.h"
 
-ProcessList::ProcessList(int argc, char **argv)
+Renice::Renice(int argc, char **argv)
     : POSIXApplication(argc, argv)
 {
-    parser().setDescription("Output system process list");
+    parser().setDescription("Changes the priority of running processes");
+    parser().registerPositional("PROCESS_ID", "this processes' scheduling priority will change");
+    parser().registerPositional("PRIORITY", "the level that the processes' scheduling priority will be changed to");
+    parser().registerFlag('n', "priority", "alter current priority level");
 }
 
-ProcessList::Result ProcessList::exec()
+Renice::Result Renice::exec()
 {
-    const ProcessClient process;
-    String out;
+    if (arguments().get("priority")) {
+        ProcessID pid = atoi(arguments().get("PROCESS_ID"));
+        int priority = atoi(arguments().get("PRIORITY"));
 
-    // Print header
-    out << "ID  PARENT  USER GROUP STATUS     CMD\r\n";
-
-    // Loop processes
-    for (ProcessID pid = 0; pid < ProcessClient::MaximumProcesses; pid++)
-    {
+        ProcessClient process;
         ProcessClient::Info info;
 
-        const ProcessClient::Result result = process.processInfo(pid, info);
-        if (result == ProcessClient::Success)
-        {
-            DEBUG("PID " << pid << " state = " << *info.textState);
-
-            // Output a line
-            char line[128];
-            snprintf(line, sizeof(line),
-                    "%3d %7d %4d %5d %10s %32s\r\n",
-                     pid, info.kernelState.parent,
-                     0, 0, *info.textState, *info.command);
-            out << line;
+        if (process.processInfo(pid, info) != ProcessClient::Success) {
+            ERROR("No process of ID '" << pid << "' is found");
+            return InvalidArgument;
         }
+
+        if (priority > 5 || priority < 1) {
+            ERROR("Failed to set priority for process " << pid);
+            return InvalidArgument;
+        }
+
+        process.setPriority(pid, priority);
+
+        printf("process %d set to priority %d, from priority %d\n", pid, priority, info.kernelState.priority);
     }
 
-    // Output the table
-    write(1, *out, out.length());
     return Success;
 }
+
