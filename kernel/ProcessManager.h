@@ -231,6 +231,19 @@ class ProcessManager
      */
     Result dequeueProcess(Process *proc, const bool ignoreState = false) const;
 
+	public:
+	/**
+     * Change the priority of the given process
+     *
+     * @param proc Process pointer
+     *
+     * @return Result code
+     */
+	Result changePriority(Process *proc, const int priority);
+
+
+
+
   private:
 
     /** All known Processes. */

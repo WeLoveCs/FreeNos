@@ -421,3 +421,11 @@ ProcessManager::Result ProcessManager::dequeueProcess(Process *proc, const bool 
 
     return Success;
 }
+
+ProcessManager::Result ProcessManager::changePriority(Process *proc, int priority)
+{
+	if(proc->setPriority(priority) != Process::Success) {
+            FATAL("failed to set priority of PID " << proc->getID());
+        }
+	return Success;
+}
