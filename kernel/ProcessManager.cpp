@@ -200,6 +200,7 @@ ProcessManager::Result ProcessManager::schedule()
     return Success;
 }
 
+
 Process * ProcessManager::current()
 {
     return m_current;
@@ -425,7 +426,7 @@ ProcessManager::Result ProcessManager::dequeueProcess(Process *proc, const bool 
 ProcessManager::Result ProcessManager::changePriority(Process *proc, int priority)
 {
 	if(proc->setPriority(priority) != Process::Success) {
-            FATAL("failed to set priority of PID " << proc->getID());
-        }
-	return Success;
+		FATAL("failed to set priority of PID " << proc->getID());
+	}
+    return Success;
 }

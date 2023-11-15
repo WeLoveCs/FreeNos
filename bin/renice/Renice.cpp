@@ -18,6 +18,7 @@
 #include <Types.h>
 #include <Macros.h>
 #include <stdio.h>
+#include <stdlib.h>
 #include <unistd.h>
 #include <ProcessClient.h>
 #include "Renice.h"
@@ -26,15 +27,15 @@ Renice::Renice(int argc, char **argv)
     : POSIXApplication(argc, argv)
 {
     parser().setDescription("Changes the priority of running processes");
+	parser().registerPositional("PRIORITY", "the level that the processes' scheduling priority will be changed to");
     parser().registerPositional("PROCESS_ID", "this processes' scheduling priority will change");
-    parser().registerPositional("PRIORITY", "the level that the processes' scheduling priority will be changed to");
     parser().registerFlag('n', "priority", "alter current priority level");
 }
 
 Renice::Result Renice::exec()
 {
     if (arguments().get("priority")) {
-        ProcessID pid = atoi(arguments().get("PROCESS_ID"));
+        pid_t pid = atoi(arguments().get("PROCESS_ID"));
         int priority = atoi(arguments().get("PRIORITY"));
 
         ProcessClient process;
@@ -50,7 +51,7 @@ Renice::Result Renice::exec()
             return InvalidArgument;
         }
 
-        process.setPriority(pid, priority);
+        ProcessCtl(pid, SetPriority, priority);
 
         printf("process %d set to priority %d, from priority %d\n", pid, priority, info.kernelState.priority);
     }

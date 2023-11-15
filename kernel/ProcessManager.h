@@ -106,6 +106,17 @@ class ProcessManager
     Result schedule();
 
     /**
+     * Change the priority of a given process
+     * 
+     * @param proc Process ID
+	 * 
+     * @param priority Priority level number
+	 * 
+     * @return Result 
+     */
+    Result changePriority(Process *proc, int priority);
+
+    /**
      * Let current Process wait for another Process to terminate.
      *
      * @param proc Process pointer
@@ -230,19 +241,6 @@ class ProcessManager
      * @return Result code
      */
     Result dequeueProcess(Process *proc, const bool ignoreState = false) const;
-
-	public:
-	/**
-     * Change the priority of the given process
-     *
-     * @param proc Process pointer
-     *
-     * @return Result code
-     */
-	Result changePriority(Process *proc, const int priority);
-
-
-
 
   private:
 

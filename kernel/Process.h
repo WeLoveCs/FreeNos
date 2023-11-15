@@ -60,6 +60,13 @@ class Process
         WakeupPending
     };
 
+
+	enum Priority
+	{
+		Max = 5,
+		Mid = 3,
+		Min = 1
+	};
     /**
      * Represents the execution state of the Process
      */
@@ -105,7 +112,7 @@ class Process
     /**
      * Get Wait ID.
      */
-	ProcessID getPriority() const;
+	Priority getPriority() const;
 
 	/**
      * Get priority number.
@@ -260,7 +267,7 @@ class Process
     ProcessID m_parent;
 
 	/** Priority 1 - 5*/
-	uint m_priority;
+	Priority m_priority;
     /** Current process status. */
     State m_state;
 

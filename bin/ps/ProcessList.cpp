@@ -37,7 +37,7 @@ ProcessList::Result ProcessList::exec()
     // Print header
 	if (arguments().get("list"))
 	{
-		out << "ID  Priority\r\n";
+		out << "ID  Priority     CMD\r\n";
 		
 	}else
 	{
@@ -60,8 +60,8 @@ ProcessList::Result ProcessList::exec()
 			{
 			
 			snprintf(line, sizeof(line),
-				"%3d %7d\r\n",
-				pid, info.priority);
+				"%3d %7d %32s\r\n",
+				pid, info.kernelState.priority, *info.command);
 				
 			}else
 			{

@@ -70,13 +70,13 @@ API::Result ProcessCtlHandler(const ProcessID procID,
     case GetParent:
         return (API::Result) procs->current()->getParent();
 
-	case GetPriority:
-		return (API::Result) procs->current()->getPriority();
+    case GetPriority:
+        return (API::Result) procs->current()->getPriority();
 
-	case ChangePriority:
-		procs->changePriority(proc, addr);
-		procs->schedule();
-		break;
+	case SetPriority:
+        procs->changePriority(proc, addr);
+        procs->schedule();
+        break;
 
     case Schedule:
         procs->schedule();
@@ -143,6 +143,7 @@ API::Result ProcessCtlHandler(const ProcessID procID,
         info->id    = proc->getID();
         info->state = proc->getState();
         info->parent = proc->getParent();
+        info->priority = proc->getPriority();
         break;
 
     case WaitPID:
@@ -198,12 +199,13 @@ Log & operator << (Log &log, ProcessOperation op)
         case KillPID:   log.append("KillPID"); break;
         case GetPID:    log.append("GetPID"); break;
         case GetParent: log.append("GetParent"); break;
-		case Get: log.append("GetPriority"); break;
+        case GetPriority: log.append("GetPriority"); break;
+		case SetPriority: log.append("SetPriority"); break;
         case WatchIRQ:  log.append("WatchIRQ"); break;
         case EnableIRQ: log.append("EnableIRQ"); break;
         case DisableIRQ:log.append("DisableIRQ"); break;
         case InfoPID:   log.append("InfoPID"); break;
-        case WaitPID:   log.append("WaitPID"); break;
+        case WaitPID:   log.append("WaitPID"); break;  
         case InfoTimer: log.append("InfoTimer"); break;
         case EnterSleep: log.append("EnterSleep"); break;
         case Schedule:  log.append("Schedule"); break;
