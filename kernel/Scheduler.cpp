@@ -76,7 +76,7 @@ Process * Scheduler::select()
 {
     for(int i = 4; i >= 0; i--)
     {
-        if (m_queue.count() > 0)
+        if (m_queue[i].count() > 0)
         {
             Process *p = m_queue[i].pop();
             m_queue[i].push(p);
