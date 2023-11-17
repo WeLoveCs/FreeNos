@@ -1,7 +1,8 @@
 # FreeNos
+Priority Branch:
  
-Benjamin Dinh
-Ethan Bautista
-Ivan Chor
+Benjamin Dinh: Implemented Priority and Process List
+Ethan Bautista: Implemented Renice
+Ivan Chor: Implemented Scheduler
 
-Project 2: https://youtu.be/L3JfhiPr7S0
+Project 3: https://youtu.be/41PecB8o2is
