@@ -115,8 +115,17 @@ void Process::setParent(ProcessID id)
 
  Process::Result Process::setPriority(int prio)
 {
-	m_priority = (Priority) prio;
-	return Success;
+	if(prio >= 1 && prio <= 5)
+	{
+		m_priority = (Priority) prio;
+		return Success;
+	}
+	else
+	{
+		ERROR("Priority level is invalid: " << prio)
+		return InvalidArgument;
+	}
+	
 }
 
 Process::Result Process::wait(ProcessID id)
